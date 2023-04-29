@@ -1,3 +1,4 @@
+import 'package:caerus/Views/Notices.dart';
 import 'package:caerus/main.dart';
 import 'package:flutter/material.dart';
 import 'package:caerus/Views/MainPage/MainPage.dart';

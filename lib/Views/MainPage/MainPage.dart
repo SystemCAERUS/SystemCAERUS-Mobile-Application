@@ -1,3 +1,4 @@
+import 'package:caerus/Views/Notices.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -311,27 +312,35 @@ class _MainPageState extends State<MainPage> {
                 ),),
               Padding(
                 padding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
-                child: Container(
-                  height: 60,
-                  child: Center(child: Text("Notice Board",style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.grey.shade700,
-                    fontWeight: FontWeight.w600,
-                  ),)),
-                  decoration: BoxDecoration(
-                    color: Colors.grey.shade200,
-                    borderRadius: BorderRadius.circular(6),
-                    boxShadow:  [
-                      BoxShadow(
-                        color: Colors.grey.shade900.withOpacity(0.5), //color of shadow
-                        spreadRadius: 1, //spread radius
-                        blurRadius: 3, // blur radius
-                        offset: Offset(0, 2), // changes position of shadow
-                        //first paramerter of offset is left-right
-                        //second parameter is top to down
-                      ),
-                      //you can set more BoxShadow() here
-                    ],
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => NotificationPage()),
+                    );
+                  },
+                  child: Container(
+                    height: 60,
+                    child: Center(child: Text("Notice Board",style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.grey.shade700,
+                      fontWeight: FontWeight.w600,
+                    ),)),
+                    decoration: BoxDecoration(
+                      color: Colors.grey.shade200,
+                      borderRadius: BorderRadius.circular(6),
+                      boxShadow:  [
+                        BoxShadow(
+                          color: Colors.grey.shade900.withOpacity(0.5), //color of shadow
+                          spreadRadius: 1, //spread radius
+                          blurRadius: 3, // blur radius
+                          offset: Offset(0, 2), // changes position of shadow
+                          //first paramerter of offset is left-right
+                          //second parameter is top to down
+                        ),
+                        //you can set more BoxShadow() here
+                      ],
+                    ),
                   ),
                 ),),
               Padding(
