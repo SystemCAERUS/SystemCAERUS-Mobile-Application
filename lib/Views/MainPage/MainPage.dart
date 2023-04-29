@@ -321,7 +321,7 @@ class _MainPageState extends State<MainPage> {
                   },
                   child: Container(
                     height: 60,
-                    child: Center(child: Text("Notice Board",style: TextStyle(
+                    child: Center(child: Text("Notice Board (දැන්වීම් පුවරුව)",style: TextStyle(
                       fontSize: 20,
                       color: Colors.grey.shade700,
                       fontWeight: FontWeight.w600,

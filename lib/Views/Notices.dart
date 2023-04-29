@@ -37,34 +37,78 @@ class _NotificationPageState extends State<NotificationPage> {
         title: Text('Notice Board   ( දැන්වීම් පුවරුව )'),
       ),
       body: Container(
-        child: ListView.builder(
-          itemCount: notifications.length,
-          itemBuilder: (BuildContext context, int index) {
-            return GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => Scaffold(
-                            appBar: AppBar(
-                              backgroundColor: Colors.black54,
-                              title: Text('Notice    ( දැනුම්දීම )'),
-                            ),
-                            body: SafeArea(
-                              child: Container(
-                                child:
-                                    Text(notifications[index]['notification']),
-                              ),
-                            ),
-                          )),
+        color: Colors.black26,
+        child: Padding(
+          padding: const EdgeInsets.all(14.0),
+          child: Container(
+            child: ListView.builder(
+              itemCount: notifications.length,
+              itemBuilder: (BuildContext context, int index) {
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Scaffold(
+                                appBar: AppBar(
+                                  backgroundColor: Colors.black54,
+                                  title: Text('Notice    ( දැනුම්දීම )'),
+                                ),
+                                body: SafeArea(
+                                  child: Container(
+
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: SingleChildScrollView(
+                                        child: Container(
+                                          child: Column(
+                                            children: [
+                                              Container(
+                                                  height: 50,
+                                                  child: Text(
+                                                    notifications[index]
+                                                        ['notification'],
+                                                    style: TextStyle(
+                                                      fontSize: 22,
+                                                      fontWeight: FontWeight.w700,
+                                                    ),
+                                                  )),
+                                              Container(
+                                                  child: Text(notifications[index]
+                                                      ['desc']))
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              )),
+                    );
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(6),
+                        boxShadow: [BoxShadow(
+                          color: Colors.grey.shade900.withOpacity(0.06), //color of shadow
+                          spreadRadius: 2, //spread radius
+                          blurRadius: 2, // blur radius
+                          offset: Offset(0, 3),
+                        ),],
+                        color: Colors.black12,
+                      ),
+                      child: ListTile(
+                        title: Text(notifications[index]['notification'],style: TextStyle(fontWeight: FontWeight.w700,fontSize: 16),),
+                        subtitle: Text(notifications[index]['date'].toString()),
+                      ),
+                    ),
+                  ),
                 );
               },
-              child: ListTile(
-                title: Text(notifications[index]['notification']),
-                subtitle: Text(notifications[index]['date'].toString()),
-              ),
-            );
-          },
+            ),
+          ),
         ),
       ),
     );
