@@ -1,7 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.janithlahiru.caerus">
    <application
-        android:label="CAERUS"
+       android:usesCleartextTraffic="true"
+
+       android:label="CAERUS"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

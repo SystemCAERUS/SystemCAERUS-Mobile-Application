@@ -14,6 +14,7 @@ class _NotificationPageState extends State<NotificationPage> {
     try {
       final response = await http.get(Uri.parse('http://192.168.1.5:8800/hr'));
       final responseData = json.decode(response.body);
+      print("Hello");
       print(responseData);
       setState(() {
         notifications = responseData;
@@ -56,26 +57,46 @@ class _NotificationPageState extends State<NotificationPage> {
                                 ),
                                 body: SafeArea(
                                   child: Container(
-
+                                    height: MediaQuery.of(context).size.height,
+                                    width: MediaQuery.of(context).size.width,
+                                    color: Colors.black26,
                                     child: Padding(
-                                      padding: const EdgeInsets.all(10.0),
+                                      padding: const EdgeInsets.all(15.0),
                                       child: SingleChildScrollView(
                                         child: Container(
+                                          height: MediaQuery.of(context).size.height,
+                                          width: MediaQuery.of(context).size.width,
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(6),
+                                            boxShadow: [BoxShadow(
+                                              color: Colors.grey.shade900.withOpacity(0.06), //color of shadow
+                                              spreadRadius: 2, //spread radius
+                                              blurRadius: 2, // blur radius
+                                              offset: Offset(0, 3),
+                                            ),],
+                                            color: Colors.black12,
+                                          ),
                                           child: Column(
                                             children: [
-                                              Container(
-                                                  height: 50,
-                                                  child: Text(
-                                                    notifications[index]
-                                                        ['notification'],
-                                                    style: TextStyle(
-                                                      fontSize: 22,
-                                                      fontWeight: FontWeight.w700,
-                                                    ),
-                                                  )),
-                                              Container(
-                                                  child: Text(notifications[index]
-                                                      ['desc']))
+                                              Padding(
+                                                padding: const EdgeInsets.all(8.0),
+                                                child: Container(
+                                                    height: 50,
+                                                    child: Text(
+                                                      notifications[index]
+                                                          ['notification'],
+                                                      style: TextStyle(
+                                                        fontSize: 22,
+                                                        fontWeight: FontWeight.w700,
+                                                      ),
+                                                    )),
+                                              ),
+                                              Padding(
+                                                padding: const EdgeInsets.all(8.0),
+                                                child: Container(
+                                                    child: Text(notifications[index]
+                                                        ['desc'])),
+                                              )
                                             ],
                                           ),
                                         ),
